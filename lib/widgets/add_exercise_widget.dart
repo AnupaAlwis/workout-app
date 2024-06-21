@@ -6,8 +6,11 @@ class AddExerciseCard extends StatefulWidget {
   final String exerciseTitle;
   final String exerciseImageUrl;
   final int noOfMinutes;
+  final bool isAdded;
+  final bool isfavorite;
   final void Function() toggleAddExercise;
-  const AddExerciseCard({super.key, required this.exerciseTitle, required this.exerciseImageUrl, required this.noOfMinutes, required this.toggleAddExercise});
+  final void Function() toggleAddFavExercise;
+  const AddExerciseCard({super.key, required this.exerciseTitle, required this.exerciseImageUrl, required this.noOfMinutes, required this.toggleAddExercise, required this.isAdded, required this.toggleAddFavExercise, required this.isfavorite});
 
   @override
   State<AddExerciseCard> createState() => _AddExerciseCardState();
@@ -76,8 +79,8 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                       onPressed: () {
                         widget.toggleAddExercise();
                       },
-                      icon: const Icon(
-                        Icons.add,
+                      icon:  Icon(
+                        widget.isAdded? Icons.add : Icons.remove,
                         size: 30,
                         color: kMainDarkBlueColor),
                     ),
@@ -90,9 +93,11 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                       color: kSubtitleColor.withOpacity(0.4),
                     ),
                     child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite_border,
+                      onPressed: () {
+                        widget.toggleAddFavExercise();
+                      },
+                      icon: Icon(
+                        widget.isfavorite ? Icons.favorite_border : Icons.favorite,
                         size: 30,
                         color: kMainPinkColor),
                     ),

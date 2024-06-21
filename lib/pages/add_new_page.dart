@@ -16,6 +16,7 @@ class AddNewPage extends StatefulWidget {
 class _AddNewPageState extends State<AddNewPage> {
   final userData = user;
   final exerciseList = ExerciseData().exercisesList;
+  final favExerciseList = user.favExerciseList;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,12 +58,27 @@ class _AddNewPageState extends State<AddNewPage> {
                     return AddExerciseCard(
                         exerciseTitle: exercise.exerciseName,
                         exerciseImageUrl: exercise.exerciseImageUrl,
-                        noOfMinutes: exercise.noOfMinutes, 
+                        noOfMinutes: exercise.noOfMinutes,
+                        isAdded: exerciseList.contains(exercise), 
                         toggleAddExercise: () {
-                          userData.addExercise(exercise);
-                        },);
-                        
-                        
+                          setState(() {
+                            if (exerciseList.contains(exercise)){
+                              userData.removeExercise(exercise);
+                            } else {
+                              userData.addExercise(exercise);
+                            }
+                            
+                          }
+                          );
+                        }, toggleAddFavExercise: () {
+                          setState(() {
+                            if(favExerciseList.contains(exercise)){
+                              userData.removeFavExercise(exercise);
+                            }else{
+                              userData.addFavExercise(exercise);
+                            }
+                          });
+                        }, isfavorite: favExerciseList.contains(exercise), );
                   },
                 ),
               )

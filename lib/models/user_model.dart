@@ -37,5 +37,20 @@ class User {
         exerciseList.add(exercise);
         
       }
+
+      //Remove a exercise from the exercise list
+      void removeExercise(Exercise exercise){
+        exerciseList.remove(exercise);
+      }
+
+      //Add a exercise to the favorite list
+      void addFavExercise(Exercise exercise){
+        favExerciseList.add(exercise);
+      }
+
+      //Remove a exercise from the favorite list
+      void removeFavExercise(Exercise exercise){
+        favExerciseList.remove(exercise);
+      } 
 }
 
