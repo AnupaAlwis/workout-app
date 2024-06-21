@@ -6,7 +6,8 @@ class AddExerciseCard extends StatefulWidget {
   final String exerciseTitle;
   final String exerciseImageUrl;
   final int noOfMinutes;
-  const AddExerciseCard({super.key, required this.exerciseTitle, required this.exerciseImageUrl, required this.noOfMinutes});
+  final void Function() toggleAddExercise;
+  const AddExerciseCard({super.key, required this.exerciseTitle, required this.exerciseImageUrl, required this.noOfMinutes, required this.toggleAddExercise});
 
   @override
   State<AddExerciseCard> createState() => _AddExerciseCardState();
@@ -72,7 +73,9 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                       color: kSubtitleColor.withOpacity(0.4),
                     ),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.toggleAddExercise();
+                      },
                       icon: const Icon(
                         Icons.add,
                         size: 30,

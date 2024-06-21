@@ -30,4 +30,12 @@ class User {
       required this.equipmentList,
       required this.favExerciseList,
       required this.favEquipmentList,});
+
+      //methods
+      //Add exercise to the exercise list
+      void addExercise(Exercise exercise){
+        exerciseList.add(exercise);
+        
+      }
 }
+

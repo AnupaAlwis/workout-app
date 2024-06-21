@@ -57,7 +57,12 @@ class _AddNewPageState extends State<AddNewPage> {
                     return AddExerciseCard(
                         exerciseTitle: exercise.exerciseName,
                         exerciseImageUrl: exercise.exerciseImageUrl,
-                        noOfMinutes: exercise.noOfMinutes);
+                        noOfMinutes: exercise.noOfMinutes, 
+                        toggleAddExercise: () {
+                          userData.addExercise(exercise);
+                        },);
+                        
+                        
                   },
                 ),
               )
