@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_planner_full/constants/colors.dart';
 import 'package:workout_planner_full/constants/responsiveness.dart';
+import 'package:workout_planner_full/data/user_data.dart';
 
 class AddExerciseCard extends StatefulWidget {
   final String exerciseTitle;
@@ -10,7 +11,15 @@ class AddExerciseCard extends StatefulWidget {
   final bool isfavorite;
   final void Function() toggleAddExercise;
   final void Function() toggleAddFavExercise;
-  const AddExerciseCard({super.key, required this.exerciseTitle, required this.exerciseImageUrl, required this.noOfMinutes, required this.toggleAddExercise, required this.isAdded, required this.toggleAddFavExercise, required this.isfavorite});
+  const AddExerciseCard(
+      {super.key,
+      required this.exerciseTitle,
+      required this.exerciseImageUrl,
+      required this.noOfMinutes,
+      required this.toggleAddExercise,
+      required this.isAdded,
+      required this.toggleAddFavExercise,
+      required this.isfavorite});
 
   @override
   State<AddExerciseCard> createState() => _AddExerciseCardState();
@@ -23,18 +32,18 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
       width: 200,
       margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: kCardbgColor,
-          // boxShadow: const [
-          //   BoxShadow(
-          //     color: kMainBlackColor,
-          //     blurRadius: 10,
-          //     offset: Offset(0, 2),
-          //   )
-          //]
-          ),
+        borderRadius: BorderRadius.circular(10),
+        color: kCardbgColor,
+        // boxShadow: const [
+        //   BoxShadow(
+        //     color: kMainBlackColor,
+        //     blurRadius: 10,
+        //     offset: Offset(0, 2),
+        //   )
+        //]
+      ),
       child: Padding(
-        padding:  const EdgeInsets.all(kDefaultPadding),
+        padding: const EdgeInsets.all(kDefaultPadding),
         child: Column(
           children: [
             Text(
@@ -78,11 +87,10 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                     child: IconButton(
                       onPressed: () {
                         widget.toggleAddExercise();
+                        print(user.exerciseList.length);
                       },
-                      icon:  Icon(
-                        widget.isAdded? Icons.add : Icons.remove,
-                        size: 30,
-                        color: kMainDarkBlueColor),
+                      icon: Icon(widget.isAdded ? Icons.remove : Icons.add,
+                          size: 30, color: kMainDarkBlueColor),
                     ),
                   ),
                   Container(
@@ -95,11 +103,14 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                     child: IconButton(
                       onPressed: () {
                         widget.toggleAddFavExercise();
+                        print(user.favExerciseList.length);
                       },
                       icon: Icon(
-                        widget.isfavorite ? Icons.favorite_border : Icons.favorite,
-                        size: 30,
-                        color: kMainPinkColor),
+                          widget.isfavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          size: 30,
+                          color: kMainPinkColor),
                     ),
                   ),
                 ],
