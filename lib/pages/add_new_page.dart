@@ -113,30 +113,33 @@ class _AddNewPageState extends State<AddNewPage> {
                 itemBuilder: (context, index) {
                   Equipment equipment = equipmentList[index];
                   return AddEquipmentCard(
-                      equipmentTitle: equipment.equipmentName,
-                      equipmentImageUrl: equipment.equipmentImageUrl,
-                      noOfMinutes: equipment.noOfMinutes,
-                      noOfCalories: equipment.noOfCalories);
+                    equipmentTitle: equipment.equipmentName, 
+                    equipmentImageUrl: equipment.equipmentImageUrl, 
+                    noOfMinutes: equipment.noOfMinutes, 
+                    noOfCalories: equipment.noOfCalories, 
+                    toggleAddEquipment: (){
+                      setState(() {
+                        if(userData.equipmentList.contains(equipment)){
+                          userData.removeEquioment(equipment);
+                        }else{
+                          userData.addEquipment(equipment);
+                        }
+                      });
+                    },
+                    toggleAddFavEquipment: (){
+                      setState(() {
+                        if(userData.favEquipmentList.contains(equipment)){
+                          userData.removeFavEquipment(equipment);
+                        }else{
+                          userData.addFavEquipment(equipment);
+                        }
+                      });
+                    },
+                    isAdded: userData.equipmentList.contains(equipment), 
+                    isfavorite: userData.favEquipmentList.contains(equipment),);
                 },
               )
-              // GridView.builder(
-              //   shrinkWrap: true,
-              //   physics: const NeverScrollableScrollPhysics(),
-              //   itemCount: equipmentList.length,
-              //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              //       crossAxisCount: 1,
-              //       mainAxisSpacing: kDefaultPadding,
-              //       crossAxisSpacing: kDefaultPadding,
-              //       childAspectRatio: 1),
-              //   itemBuilder: (BuildContext context, int index) {
-              //     Equipment equipment = equipmentList[index];
-              //     return AddEquipmentCard(
-              //       equipmentTitle: equipment.equipmentName,
-              //       equipmentImageUrl: equipment.equipmentImageUrl,
-              //       noOfMinutes: equipment.noOfMinutes,
-              //       noOfCalories: equipment.noOfCalories);
-              //   },
-              // ),
+
             ],
           ),
         )),
