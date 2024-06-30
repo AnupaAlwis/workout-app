@@ -21,22 +21,29 @@ class _FavoriteCardState extends State<FavoriteCard> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-          color: kSubtitleColor, borderRadius: BorderRadius.circular(10)),
-      child: Row(
-        children: [
-          Image.asset(widget.imageUrl, width: 50, fit: BoxFit.cover,),
-          Text(
-            widget.exerciseName,
-            style: const TextStyle(
-                color: kMainBlackColor,
-                fontSize: 15,
-                fontWeight: FontWeight.w500),
-          ),
-          const Spacer(),
-          IconButton(onPressed: (){
-            widget.completed;
-          }, icon: Icon(Icons.play_arrow_outlined))
-        ],
+          color: kSubtitleColor.withOpacity(0.6), borderRadius: BorderRadius.circular(10)),
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal : 8, vertical: 4),
+        child: Row(
+          children: [
+            Image.asset(widget.imageUrl, width: 50, fit: BoxFit.cover,),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              widget.exerciseName,
+              style: const TextStyle(
+                  color: kMainBlackColor,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600),
+            ),
+            const Spacer(),
+            IconButton(onPressed: (){
+              widget.completed;
+            }, icon: const Icon(Icons.check_sharp), color: kMainColor,)
+          ],
+        ),
       ),
     );
   }
