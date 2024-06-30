@@ -24,7 +24,7 @@ class _FavoriteCardState extends State<FavoriteCard> {
           color: kSubtitleColor, borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
-          Image.asset(widget.imageUrl),
+          Image.asset(widget.imageUrl, width: 50, fit: BoxFit.cover,),
           Text(
             widget.exerciseName,
             style: const TextStyle(
