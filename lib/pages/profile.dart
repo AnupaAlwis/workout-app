@@ -116,7 +116,9 @@ class _ProfilePageState extends State<ProfilePage> {
             return FavoriteCard(
                 imageUrl: exercise.exerciseImageUrl,
                 exerciseName: exercise.exerciseName,
-                completed: () {});
+                completed: () {
+                  userData.completeExercise(exercise.id);
+                });
           },
         ),
         const Text(
@@ -138,7 +140,11 @@ class _ProfilePageState extends State<ProfilePage> {
             return FavoriteCard(
                 imageUrl: equipment.equipmentImageUrl,
                 exerciseName: equipment.equipmentName,
-                completed: () {});
+                completed: () {
+                  setState(() {
+                    userData.handOvered(equipment.id);
+                  });
+                });
           },
         )
       ]),
