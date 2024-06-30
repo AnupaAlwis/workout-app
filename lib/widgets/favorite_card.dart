@@ -33,7 +33,9 @@ class _FavoriteCardState extends State<FavoriteCard> {
                 fontWeight: FontWeight.w500),
           ),
           const Spacer(),
-          IconButton(onPressed: (){}, icon: Icon(Icons.play_arrow_outlined))
+          IconButton(onPressed: (){
+            widget.completed;
+          }, icon: Icon(Icons.play_arrow_outlined))
         ],
       ),
     );

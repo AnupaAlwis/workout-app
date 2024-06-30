@@ -73,5 +73,20 @@ class User {
         favEquipmentList.remove(equipment);
       }
 
+      //Calculate total number of minutes spend
+      int totalNumberOfMinutedSpend(){
+        int totalNumberOfMinutes = 0;
+        for (var exercise in exerciseList){
+          totalNumberOfMinutes += exercise.noOfMinutes;
+        }
+        for (var equipment in equipmentList){
+          totalNumberOfMinutes += equipment.noOfMinutes;
+        }
+
+        return totalNumberOfMinutes;
+
+      }
+
+
 }
 

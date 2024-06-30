@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:workout_planner_full/constants/colors.dart';
-import 'package:workout_planner_full/data/user_data.dart';
 
 class AddEquipmentCard extends StatefulWidget {
   final String equipmentTitle;
@@ -86,7 +84,6 @@ class _AddEquipmentCardState extends State<AddEquipmentCard> {
                         IconButton(
                             onPressed: () {
                               widget.toggleAddEquipment();
-                              print(user.equipmentList.length);
                             },
                             icon: Icon(widget.isAdded? Icons.remove_circle : Icons.add_circle,
                                 color: kMainColor, size: 25)),
@@ -96,7 +93,6 @@ class _AddEquipmentCardState extends State<AddEquipmentCard> {
                         IconButton(
                             onPressed: () {
                               widget.toggleAddFavEquipment();
-                              print(user.favEquipmentList.length);
                             },
                             icon: Icon(widget.isfavorite? Icons.favorite : Icons.favorite_border,
                                 color: kMainPinkColor, size: 25))
