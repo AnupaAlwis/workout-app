@@ -110,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ListView.builder(
           itemCount: userData.exerciseList.length,
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             Exercise exercise = userData.exerciseList[index];
             return FavoriteCard(
@@ -132,7 +132,7 @@ class _ProfilePageState extends State<ProfilePage> {
           height: 10,
         ),
         ListView.builder(
-          itemCount: userData.exerciseList.length,
+          itemCount: userData.equipmentList.length,
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {

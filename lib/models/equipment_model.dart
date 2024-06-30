@@ -6,7 +6,7 @@ class Equipment{
   final String equipmentImageUrl;
   final int noOfMinutes;
   final double noOfCalories;
-  final bool handedOvered;
+  bool handedOvered;
 
   Equipment({
     required this.id,
