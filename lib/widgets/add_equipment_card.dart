@@ -92,6 +92,7 @@ class _AddEquipmentCardState extends State<AddEquipmentCard> {
                         ),
                         IconButton(
                             onPressed: () {
+                              
                               widget.toggleAddFavEquipment();
                             },
                             icon: Icon(widget.isfavorite? Icons.favorite : Icons.favorite_border,

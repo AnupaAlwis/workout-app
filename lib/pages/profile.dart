@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
         const SizedBox(
           height: 10,
         ),
-        const ProgressBar(total: 100, progressValue: 0.1),
+        ProgressBar(total: userData.calculateTotalCaloriesBurned(), progressValue: 0.1),
         const SizedBox(
           height: 10,
         ),

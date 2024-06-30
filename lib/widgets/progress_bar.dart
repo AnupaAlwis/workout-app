@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workout_planner_full/constants/colors.dart';
 
 class ProgressBar extends StatefulWidget {
-  final int total;
+  final double total;
   final double progressValue;
   const ProgressBar(
       {super.key, required this.total, required this.progressValue});

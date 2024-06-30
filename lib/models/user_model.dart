@@ -94,16 +94,35 @@ class User {
 
     //remove exercise
     removeExercise(exercise);
-    totalExercisesCompleted += 1;
+    totalExercisesCompleted++;
   }
 
   void handOvered(int equipmentId) {
-    Equipment equipment = equipmentList.firstWhere((equipment) => equipment.id == equipmentId);
+    Equipment equipment =
+        equipmentList.firstWhere((equipment) => equipment.id == equipmentId);
     equipment.handedOvered = true;
 
     //remove equipment
     removeEquioment(equipment);
-    totalEquipmentsHandOvered += 1;
-}
+    totalEquipmentsHandOvered++;
+  }
 
+  double calculateTotalCaloriesBurned() {
+    double totalCaloriesBurned = 0;
+    for (var equipment in equipmentList) {
+      totalCaloriesBurned += equipment.noOfCalories;
+    }
+    if (totalCaloriesBurned > 0 && totalCaloriesBurned < 10){
+      totalCaloriesBurned /= 10;
+    }
+    if(totalCaloriesBurned > 10 && totalCaloriesBurned < 100){
+      totalCaloriesBurned /= 100;
+      
+    }
+    if(totalCaloriesBurned > 100 && totalCaloriesBurned < 1000){
+      totalCaloriesBurned /= 1000;
+      
+    }
+    return totalCaloriesBurned;
+  }
 }

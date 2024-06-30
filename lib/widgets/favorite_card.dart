@@ -41,7 +41,8 @@ class _FavoriteCardState extends State<FavoriteCard> {
             const Spacer(),
             IconButton(onPressed: (){
               widget.completed;
-            }, icon: const Icon(Icons.check_sharp), color: kMainColor,)
+            }, 
+            icon: const Icon(Icons.check_sharp), color: kMainColor,)
           ],
         ),
       ),
